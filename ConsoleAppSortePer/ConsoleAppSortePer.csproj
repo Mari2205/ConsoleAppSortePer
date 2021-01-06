@@ -47,6 +47,7 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="CpuPlayer.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="Gui.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

@@ -16,13 +16,11 @@ namespace ConsoleAppSortePer
         {
             if (hand.Count == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(playerName + " has no cards left and is out of the game \n");
-                Console.ResetColor();
+                gui.NoCardsLeft(playerName);
                 isOut = true;
                 return;
             }
-            Console.WriteLine(playerName + " choose a card between 1 and " + player.hand.Count() + "\n");
+            gui.ChooseCard(playerName, player.hand.Count());
             index = UserInput();
             hand.Add(player.hand.ElementAt(index - 1));
             player.hand.RemoveAt(index - 1);

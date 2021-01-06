@@ -23,12 +23,11 @@ namespace ConsoleAppSortePer
 
         public override void Play(List<Player> players)
         {
+            Gui gui = new Gui();
+
             while (!GameOver)
             {
                 int nextPlayer = 1;
-
-
-
 
                 foreach (Player player in players.ToList())
                 {
@@ -53,8 +52,7 @@ namespace ConsoleAppSortePer
 
                         if (player.lost)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine(player.playerName + " lost the game");
+                            gui.LostGame(player.playerName);
                             GameOver = true;
                             return;
                         }
@@ -64,9 +62,7 @@ namespace ConsoleAppSortePer
                     {
                         players.Remove(player);
                     }
-
                     nextPlayer++;
-
                 }
             }
         }

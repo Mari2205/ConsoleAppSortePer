@@ -8,8 +8,6 @@ namespace ConsoleAppSortePer
 {
     public class GameManager
     {
-
-        private Random rng = new Random();
         private CardGame cardGame;
         private List<Player> players = new List<Player>();
 
@@ -46,13 +44,12 @@ namespace ConsoleAppSortePer
         public void Shuffle<T>(IList<T> list)
         {
             Random random = new Random();
-            int n = list.Count;
 
             for (int i = list.Count - 1; i > 1; i--)
             {
-                int rnd = random.Next(i + 1);
-                T value = list[rnd];
-                list[rnd] = list[i];
+                int ran = random.Next(i + 1);
+                T value = list[ran];
+                list[ran] = list[i];
                 list[i] = value;
             }
         }

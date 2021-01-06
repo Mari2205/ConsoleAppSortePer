@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppSortePer
 {
-    class Player
+    abstract class Player
     {
         public List<Card> hand = new List<Card>();
         public string playerName;
         public bool isOut = false;
         public bool lost = false;
+        protected Gui gui = new Gui();
 
         public Player(string name)
         {
@@ -27,13 +28,11 @@ namespace ConsoleAppSortePer
         {
             if (hand.Count == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(playerName + " has no cards left and is out of the game \n");
-                Console.ResetColor();
+                gui.NoCardsLeft(playerName);
                 isOut = true;
                 return;
             }
-            Console.WriteLine(playerName + " choose a card between 1 and " + player.hand.Count() + "\n");
+            gui.ChooseCard(playerName, player.hand.Count());
             index = UserInput();
             hand.Add(player.hand.ElementAt(index - 1));
             player.hand.RemoveAt(index - 1);
@@ -73,11 +72,7 @@ namespace ConsoleAppSortePer
                     {
                         if (card.CardColor == hand[i].CardColor)
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine(playerName + " found a pair! \n");
-                            Console.WriteLine("They matched " + card.ToString());
-                            Console.WriteLine("with " + hand[i].ToString() + "\n");
-                            Console.ResetColor();
+                            gui.CheckCard(playerName, card.ToString(), hand[i].ToString());
                             hand.Remove(hand[i]);
                             hand.Remove(card);
                         }

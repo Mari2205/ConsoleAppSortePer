@@ -10,7 +10,7 @@ namespace ConsoleAppSortePer
     {
         static void Main(string[] args)
         {
-            GameManager game = new GameManager(13);
+            GameManager game = new GameManager(1, 3); // antal human players og antal bots
             game.Start();
 
 
