@@ -17,14 +17,12 @@ namespace ConsoleAppSortePer
         {
             playerName = name;
         }
-        //Adds a card to the players hand
+
         public void DrawFromDeck(Card card)
         {
             hand.Add(card);
         }
 
-        //First checks if players has any cards left
-        //Draws a card from another player using user input to determine the index
         public virtual void DrawFromPlayer(Player player, int index)
         {
             if (hand.Count == 0)
@@ -41,9 +39,6 @@ namespace ConsoleAppSortePer
             player.hand.RemoveAt(index - 1);
         }
 
-
-        //Yoink'd
-        //Validates the user input, no pesky format exceptions
         public int UserInput()
         {
             bool valid = false;
@@ -57,10 +52,8 @@ namespace ConsoleAppSortePer
             }
             return value;
         }
-        //Does a normal player turn including drawing, checking for matches and if player lost
         public void PlayerTurn(Player player)
         {
-            //Checks if current players has 1 card left and if that card is sorte per then current players loses the game
             if (hand.Count == 1 && hand.First().CardValue == 10 && hand.First().CardSuit == Card.Suit.Spades)
             {
                 lost = true;
@@ -70,7 +63,6 @@ namespace ConsoleAppSortePer
             CheckMatches();
         }
 
-        //Checks if any cards in the players hand forms a pair, if matches are found they will be removed from the players hand
         public void CheckMatches()
         {
             for (int i = 0; i < hand.Count; i++)

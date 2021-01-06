@@ -8,7 +8,6 @@ namespace ConsoleAppSortePer
 {
     class SortePer : CardGame
     {
-        //Sets up the sorte per game by adding cards and removing 10 of clubs as stated in the rules
         public SortePer()
         {
             this.CardAmount = 52;
@@ -22,7 +21,6 @@ namespace ConsoleAppSortePer
             }
         }
 
-        //Main game method, keeps looping until a loser is found.
         public override void Play(List<Player> players)
         {
             while (!GameOver)
@@ -34,7 +32,6 @@ namespace ConsoleAppSortePer
 
                 foreach (Player player in players.ToList())
                 {
-                    //checks if there is more than 1 player
                     if (nextPlayer >= players.Count)
                     {
                         nextPlayer = 0;
@@ -49,10 +46,8 @@ namespace ConsoleAppSortePer
                         nextPlayer = 0;
                     }
 
-                    //player turn
                     player.PlayerTurn(players[nextPlayer]);
 
-                    //Checks if current players has lost, if true then game ends
                     if (players.Count <= 2)
                     {
 
@@ -65,8 +60,6 @@ namespace ConsoleAppSortePer
                         }
                     }
 
-
-                    //check if player is out of cards, if true player is removed from game
                     if (player.isOut)
                     {
                         players.Remove(player);

@@ -13,8 +13,6 @@ namespace ConsoleAppSortePer
         {
         }
 
-        //First checks if players has any cards left
-        //Draws a card from another player, instead of user input this determines the card chosen by using a random
         public override void DrawFromPlayer(Player player, int index)
         {
             if (hand.Count == 0)

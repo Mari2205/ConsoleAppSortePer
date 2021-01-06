@@ -26,7 +26,6 @@ namespace ConsoleAppSortePer
             cardGame = new SortePer();
         }
 
-        //Only bots, testing purpose
         public GameManager(int botCount)
         {
 
@@ -37,7 +36,6 @@ namespace ConsoleAppSortePer
             cardGame = new SortePer();
         }
 
-        //Runs all the methods required for starting a card game
         public void Start()
         {
             Shuffle(cardGame.Cards);
@@ -45,7 +43,6 @@ namespace ConsoleAppSortePer
             cardGame.Play(players);
         }
 
-        //Fisher-Yates shuffle, randomizes the positions in the deck list
         public void Shuffle<T>(IList<T> list)
         {
             Random random = new Random();
@@ -59,7 +56,7 @@ namespace ConsoleAppSortePer
                 list[i] = value;
             }
         }
-        //Gives out cards from the cardGame deck to the players playing until there are no more to give out
+
         void GiveCards()
         {
             while (cardGame.Cards.Count != 0)

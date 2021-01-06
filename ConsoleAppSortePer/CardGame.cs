@@ -18,7 +18,7 @@ namespace ConsoleAppSortePer
         byte cardAmount;
         bool gameOver = false;
 
-        //Creates a standard 52 card deck
+
         public virtual void CreateDeck()
         {
             for (byte i = 0; i < this.CardAmount / 4; i++)

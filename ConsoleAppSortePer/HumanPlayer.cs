@@ -11,8 +11,7 @@ namespace ConsoleAppSortePer
         public HumanPlayer(string name) : base(name)
         {
         }
-        //First checks if players has any cards left
-        //Draws a card from another player using user input to determine the index
+
         public override void DrawFromPlayer(Player player, int index)
         {
             if (hand.Count == 0)
